@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FieldCoor", "FieldCoor.sln (2)\FieldCoor", "{709FCBA0-2B03-4FF5-8A17-E7222EEFDBDC}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61271"
+		Debug.AspNetCompiler.PhysicalPath = "FieldCoor.sln (2)\FieldCoor\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61271\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61271"
+		Release.AspNetCompiler.PhysicalPath = "FieldCoor.sln (2)\FieldCoor\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61271\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61271"
+		SlnRelativePath = "FieldCoor.sln (2)\FieldCoor\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709FCBA0-2B03-4FF5-8A17-E7222EEFDBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709FCBA0-2B03-4FF5-8A17-E7222EEFDBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://mocic.visualstudio.com/defaultcollection
+		SccWebProject0 = true
+		SccProjectUniqueName0 = FieldCoor.sln\u0020(2)\\FieldCoor
+		SccProjectName0 = FieldCoor.sln\u0020(2)/FieldCoor
+		SccAuxPath0 = https://mocic.visualstudio.com/defaultcollection
+		SccLocalPath0 = FieldCoor.sln\u0020(2)\\FieldCoor
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+EndGlobal

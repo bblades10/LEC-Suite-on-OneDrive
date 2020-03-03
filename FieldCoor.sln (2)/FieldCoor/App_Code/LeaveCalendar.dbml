@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LeaveCalendarDB" Class="LeaveCalendarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SRV-DBS1;Initial Catalog=LeaveCalendarDB;Persist Security Info=True;User ID=userLeaveCalendar" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LeaveCalendarDBConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.spInsertCalendarRecord" Method="spInsertCalendarRecord">
+    <Parameter Name="lc_emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UserID" Parameter="userID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_StartDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="lc_EndDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="lc_AllDayEvent" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_StartTimeHour" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_StartTimeMinutes" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_EndTimeHour" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_EndTimeMinutes" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_Leavetype" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_Comment" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RepeatNumber" Parameter="repeatNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HowOften" Parameter="howOften" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteCalendarRecord" Method="spDeleteCalendarRecord">
+    <Parameter Name="lc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_emp_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectCalendarRecordForEdit" Method="spSelectCalendarRecordForEdit">
+    <Parameter Name="lc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Exists" Parameter="exists" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="spSelectCalendarRecordForEditResult">
+      <Column Name="lc_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="lc_emp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lc_StartDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="lc_EndDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="lc_AllDayEvent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lc_StartTimeHour" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lc_StartTimeMinutes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lc_EndTimeHour" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lc_EndTimeMinutes" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lc_LeaveType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lc_Comment" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="lc_Active" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateCalendarRecord" Method="spUpdateCalendarRecord">
+    <Parameter Name="lc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_StartDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="lc_EndDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="lc_AllDayEvent" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_StartTimeHour" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_StartTimeMinutes" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_EndTimeHour" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_EndTimeMinutes" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="lc_Leavetype" Type="System.Int32" DbType="Int" />
+    <Parameter Name="lc_Comment" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

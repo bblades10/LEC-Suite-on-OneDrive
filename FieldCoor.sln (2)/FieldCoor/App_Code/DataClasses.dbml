@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FieldCoorSuite" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SRV-DBS1;Initial Catalog=FieldCoorSuite;Persist Security Info=True;User ID=MOCIC_IT" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FieldCoorSuiteConnectionString1" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.spDeleteScheduledActivity" Method="spDeleteScheduledActivity">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectActivityMiscTypes" Method="spSelectActivityMiscTypes">
+    <ElementType Name="spSelectActivityMiscTypesResult">
+      <Column Name="FCS_amt_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_amt_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_amt_sort_order" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectActivityTrainingTypes" Method="spSelectActivityTrainingTypes">
+    <ElementType Name="spSelectActivityTrainingTypesResult">
+      <Column Name="FCS_att_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_att_Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_att_sort_order" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertScheduleActivity" Method="spInsertScheduleActivity">
+    <Parameter Name="emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="atype_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nm_name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="visit_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="misc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="entered_by_emp_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateScheduleActivity" Method="spUpdateScheduleActivity">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="atype_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nm_name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="visit_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="misc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="entered_by_emp_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivityTraining" Method="spInsertActivityTraining">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TypeID" Parameter="typeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Sponsored" Parameter="sponsored" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Presenter" Parameter="presenter" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MeetingName" Parameter="meetingName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Agencies" Parameter="agencies" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Attendees" Parameter="attendees" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="Text" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertRecordofTraining" Method="spInsertRecordofTraining">
+    <Parameter Name="rot_Attendee_Name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="rot_Training_Attended" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="rot_Training_Location" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="rot_Start_Date" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="rot_End_Date" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="rot_Hours_Completed" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="rot_Training_Synopsis" Type="System.String" DbType="Text" />
+    <Parameter Name="rot_Instructor_Rating" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="rot_Content_Rating" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="rot_Training_Cost" Type="System.Decimal" DbType="SmallMoney" />
+    <Parameter Name="rot_Additional_Comments" Type="System.String" DbType="Text" />
+    <Parameter Name="rot_Entered_By" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteActivity" Method="spDeleteActivity">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectActivity" Method="spSelectActivity">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectActivityResult">
+      <Column Name="FCS_a_atype_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_a_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_a_time" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectActivityTraining" Method="spSelectActivityTraining">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectActivityTrainingResult">
+      <Column Name="FCS_at_att_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_sponsored" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_presenter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_at_meeting_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_at_agencies" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_attendees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_hours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FCS_at_notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FCS_at_State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FCS_at_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_att_Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateActivityTraining" Method="spUpdateActivityTraining">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Sponsored" Parameter="sponsored" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Presenter" Parameter="presenter" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MeetingName" Parameter="meetingName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Agencies" Parameter="agencies" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Attendees" Parameter="attendees" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="Text" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectVehicleMileage" Method="spSelectVehicleMileage">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectVehicleMileageResult">
+      <Column Name="FCS_vm_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_vm_Mileage" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertApplication" Method="spInsertApplication">
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="agKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="TempAccess" Parameter="tempAccess" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Reason" Parameter="reason" Type="System.String" DbType="Text" />
+    <Parameter Name="CaseNum" Parameter="caseNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AdminTitle" Parameter="adminTitle" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AdminLastName" Parameter="adminLastName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AdminFirstName" Parameter="adminFirstName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AdminMI" Parameter="adminMI" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="Population" Parameter="population" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Sworn" Parameter="sworn" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="NonSworn" Parameter="nonSworn" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Intel" Parameter="intel" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MaintainIntel" Parameter="maintainIntel" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Secured" Parameter="secured" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Separated" Parameter="separated" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="AccessLimited" Parameter="accessLimited" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Participation" Parameter="participation" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Source" Parameter="source" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Submissions" Parameter="submissions" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Inquiries" Parameter="inquiries" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Reputation" Parameter="reputation" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AdminReputation" Parameter="adminReputation" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="KnowAgency" Parameter="knowAgency" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="KnowAgencyHead" Parameter="knowAgencyHead" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Cooprative" Parameter="cooprative" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="SponsorLetter" Parameter="sponsorLetter" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AppID" Parameter="appID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteApplication" Method="spDeleteApplication">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectApplication" Method="spSelectApplication">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectApplicationResult">
+      <Column Name="FCS_app_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_app_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_agKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_app_Agency_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_app_State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FCS_app_Temp_Access" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Reason" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FCS_app_Case_Num" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Admin_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_app_Admin_Last_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_app_Admin_First_Name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_app_Admin_MI" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="FCS_app_Population" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FCS_app_Sworn" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FCS_app_Non_Sworn" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FCS_app_Intel" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Maintain_Intel" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Intel_Secured" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Intel_Separated" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Intel_Access_Limited" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Participation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Source" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Submissions" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FCS_app_Inquiries" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FCS_app_Reputation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Admin_Reputation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Know_Agency" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Know_Agency_Head" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Cooprative" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FCS_app_Sponsor_Letters" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_app_Completed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_app_Date_Entered" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertContactedMembers" Method="spInsertContactedMembers">
+    <Parameter Name="AppID" Parameter="appID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Type" Parameter="type" Type="System.Int32" DbType="Int" />
+    <Parameter Name="agKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertContactedOtherAgency" Method="spInsertContactedOtherAgency">
+    <Parameter Name="AppID" Parameter="appID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectContactedOtherAgencies" Method="spSelectContactedOtherAgencies">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectContactedOtherAgenciesResult">
+      <Column Name="FCS_coa_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_coa_Agency_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_coa_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_coa_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_coa_Date_Entered" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCS_coa_Entered_By" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_coa_Date_Deleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCS_coa_Deleted_By" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteContactedMember" Method="spDeleteContactedMember">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spDeleteOtherAgency" Method="spDeleteOtherAgency">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertTrainingContact" Method="spInsertTrainingContact">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Contact" Parameter="contact" Type="System.String" DbType="VarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertUser" Method="spInsertUser">
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="HomeDistrict" Parameter="homeDistrict" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="AccessLevel" Parameter="accessLevel" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateUser" Method="spUpdateUser">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AccessLevel" Parameter="accessLevel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="HomeDistrict" Parameter="homeDistrict" Type="System.String" DbType="Char(2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectFormOrderFormList" Method="spSelectFormOrderFormList">
+    <ElementType Name="spSelectFormOrderFormListResult">
+      <Column Name="FCS_Forms_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_Forms_Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertRISSafeHours" Method="spInsertRISSafeHours">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Checked" Parameter="checked" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectRISSafeHours" Method="spSelectRISSafeHours">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectRISSafeHoursResult">
+      <Column Name="FCS_rs_Checked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_rs_Hours" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spUpdateRISSafeHours" Method="spUpdateRISSafeHours">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Checked" Parameter="checked" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUploadAppReapp" Method="spUploadAppReapp">
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FileName" Parameter="fileName" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="agKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(250)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertTrainingContactNonMember" Method="spInsertTrainingContactNonMember">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AgencyState" Parameter="agencyState" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Officer" Parameter="officer" Type="System.String" DbType="VarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spEditUploadAppReapp" Method="spEditUploadAppReapp">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectActivityMisc" Method="spSelectActivityMisc">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectActivityMiscResult">
+      <Column Name="FCS_am_amt_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_am_Type" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyAddressPhone" Method="spSelectAgencyAddressPhone">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyAddressPhoneResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_ID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="aa_Line1" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_City" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="aa_State" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="aa_Zip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ap_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ap_AreaCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ap_Number" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="ag_Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyFax" Method="spSelectAgencyFax">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyFaxResult">
+      <Column Name="ap_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ap_AreaCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ap_Number" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="ag_Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectContactedStateAgencies" Method="spSelectContactedStateAgencies">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectContactedStateAgenciesResult">
+      <Column Name="FCS_cm_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Contact_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_ct_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_cm_agKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_cm_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_cm_Date_Entered" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectContactedSurroundingAgencies" Method="spSelectContactedSurroundingAgencies">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectContactedSurroundingAgenciesResult">
+      <Column Name="FCS_cm_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Contact_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_ct_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_cm_agKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_cm_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_cm_Date_Entered" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectEmailGroupUserCount" Method="spSelectEmailGroupUserCount">
+    <ElementType Name="spSelectEmailGroupUserCountResult">
+      <Column Name="Users" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectLiaisonContactsReport" Method="spSelectLiaisonContactsReport">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="spSelectLiaisonContactsReportResult">
+      <Column Name="Contacts" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectOfficerInfo" Method="spSelectOfficerInfo">
+    <Parameter Name="ofKey" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectOfficerInfoResult">
+      <Column Name="of_Title" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="of_FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_MiddleName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectOfficerName" Method="spSelectOfficerName">
+    <Parameter Name="of_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectOfficerNameResult">
+      <Column Name="of_Title" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="of_FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_ID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectSponsoredLetters" Method="spSelectSponsoredLetters">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectSponsoredLettersResult">
+      <Column Name="FCS_cm_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Contact_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_ct_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_cm_agKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_cm_Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_cm_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_cm_Date_Entered" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectInfoDistributed" Method="spSelectInfoDistributed">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectInfoDistributedResult">
+      <Column Name="FCS_aid_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_aid_a_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_aid_items" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_aid_recipients" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectUser" Method="spSelectUser">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectUserResult">
+      <Column Name="FCS_u_emp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_u_district" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="FCS_u_access_level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_u_home_district" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectScheduledActivityReport" Method="spSelectScheduledActivityReport">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="spSelectScheduledActivityReportResult">
+      <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivityType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AgencyName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AgencyCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AgencyState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectParticipationReport" Method="spSelectParticipationReport">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="VarChar(2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectAgencyNonRemoteUsers" Method="spSelectAgencyNonRemoteUsers">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyNonRemoteUsersResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_ID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="of_Key" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="of_LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_Title" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="of_Codes" Type="System.String" DbType="VarChar(26)" CanBeNull="true" />
+      <Column Name="of_FreeForm" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="of_eMail" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="aa_Line1" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_City" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="aa_State" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="aa_Zip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="op_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="op_AreaCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="op_Number" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="oa_Line1" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_Line2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_Line3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_City" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="oa_State" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="oa_Zip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyRemoteUsers" Method="spSelectAgencyRemoteUsers">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyRemoteUsersResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_ID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="of_Key" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="of_LastName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_FirstName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="of_Title" Type="System.String" DbType="VarChar(75)" CanBeNull="true" />
+      <Column Name="of_Codes" Type="System.String" DbType="VarChar(26)" CanBeNull="true" />
+      <Column Name="of_FreeForm" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="of_eMail" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="aa_Line1" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_Line3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="aa_City" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="aa_State" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="aa_Zip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="op_Type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="op_AreaCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="op_Number" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="oa_Line1" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_Line2" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_Line3" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="oa_City" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="oa_State" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="oa_Zip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="oi_eMail" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectActivityTrainingNew" Method="spSelectActivityTrainingNew">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectActivityTrainingNewResult">
+      <Column Name="FCS_at_att_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_sponsored" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_participated" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FCS_at_meeting_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_at_agencies" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_attendees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_hours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FCS_at_value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_at_gain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FCS_at_notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FCS_at_State" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FCS_at_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_att_Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertTrainingMaterial" Method="spInsertTrainingMaterial">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Material" Parameter="material" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="Quantity" Parameter="quantity" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectScheduledActivity" Method="spSelectScheduledActivity">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectScheduledActivityResult">
+      <Column Name="RecordID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivityType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AgencyName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="AgencyCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AgencyState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectScheduleActivity" Method="spSelectScheduleActivity">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectScheduleActivityResult">
+      <Column Name="FCS_s_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_s_emp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_s_atype_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_s_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_s_nm_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_s_nm_city" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_s_nm_state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_s_visit_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FCS_s_training_gain" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FCS_s_atm_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_s_date_entered" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCS_s_entered_by_emp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_s_date_deleted" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FCS_s_deleted_by_emp_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectOfficerEmailAddress" Method="spSelectOfficerEmailAddress">
+    <Parameter Name="District" Parameter="district" Type="System.String" DbType="VarChar(2)" />
+    <ElementType Name="spSelectOfficerEmailAddressResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="oi_eMail" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertSuccessStory" Method="spInsertSuccessStory">
+    <Parameter Name="DateEntered" Parameter="dateEntered" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EnteredBy" Parameter="enteredBy" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AgencyState" Parameter="agencyState" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="TypeService" Parameter="typeService" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ContactName" Parameter="contactName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ContactPhoneNumber" Parameter="contactPhoneNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ContactEmailAddress" Parameter="contactEmailAddress" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SuccessStory" Parameter="successStory" Type="System.String" DbType="Text" />
+    <Parameter Name="FollowUp" Parameter="followUp" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Reprint" Parameter="reprint" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="ReportBJA" Parameter="reportBJA" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="ReportBJAYear" Parameter="reportBJAYear" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="ReportBJAQuarter" Parameter="reportBJAQuarter" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="ReportBJADate" Parameter="reportBJADate" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectAgencyVisit" Method="spSelectAgencyVisit">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyVisitResult">
+      <Column Name="FCS_aav_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_aav_nm_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FCS_aav_nm_state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_aav_nm_city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_aav_person_contacted" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FCS_aav_attempted_contact" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_phone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_onsite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_attempted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_notonsite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_atix" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_cisop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_ssl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FCS_aav_remote" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_aav_demoed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_background" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_other" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyNumberState" Method="spSelectAgencyNumberState">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spSelectAgencyNumberStateResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ap_CountryCode" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="ap_AreaCode" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="ap_Search" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertAppReappEntry" Method="spInsertAppReappEntry">
+    <Parameter Name="EntryDate" Parameter="entryDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(17)" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="District" Parameter="district" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Interim" Parameter="interim" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="InterimDate" Parameter="interimDate" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="InterimDateRemoved" Parameter="interimDateRemoved" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Lec" Parameter="lec" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="Text" />
+    <Parameter Name="EnteredBy" Parameter="enteredBy" Type="System.String" DbType="VarChar(30)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectAppReapp" Method="spSelectAppReapp">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAppReappResult">
+      <Column Name="app_key" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EnteredBy" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ChangeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgencyNumber" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AgencyState" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="AgencyName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="app_fc_report" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="app_completed" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="FirstEmail" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="SecondEmail" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ThirdEmail" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="FourthEmail" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Interim" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="InterimDate" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="InterimStartDate" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="InterimEmailDate" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertAppReappStatus" Method="spInsertAppReappStatus">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="Text" />
+    <Parameter Name="EnteredBy" Parameter="enteredBy" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateAppReappEntry" Method="spUpdateAppReappEntry">
+    <Parameter Name="App_Key" Parameter="app_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(17)" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="AgencyName" Parameter="agencyName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="District" Parameter="district" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Interim" Parameter="interim" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="InterimDate" Parameter="interimDate" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="InterimDateRemoved" Parameter="interimDateRemoved" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Lec" Parameter="lec" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Completed" Parameter="completed" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectImpactStatementReport" Method="spSelectImpactStatementReport">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="spSelectImpactStatementReportResult">
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Contacts" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAllActivityDetailsReport" Method="spSelectAllActivityDetailsReport">
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bd" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ed" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="spSelectAllActivityDetailsReportResult">
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="VisitHours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ActivityType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AgencyName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CISOP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Phone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OnSite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Attempted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Atix" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Demoed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Background" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SSL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectSuiteUserInfo" Method="spSelectSuiteUserInfo">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spSelectSuiteUserInfoResult">
+      <Column Name="ID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_u_access_level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_u_district" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="FCS_u_home_district" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectRISSafeReport" Method="spSelectRISSafeReport">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="spSelectRISSafeReportResult">
+      <Column Name="DateEntered" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FieldCoor" Type="System.String" DbType="VarChar(101)" CanBeNull="true" />
+      <Column Name="Hours" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectUploadedAppReappDetail" Method="spSelectUploadedAppReappDetail">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectUploadedAppReappDetailResult">
+      <Column Name="FCS_apd_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FCS_apd_Date_Entered" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(101)" CanBeNull="true" />
+      <Column Name="FCS_apd_File_Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="FCS_apd_Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectVehicleMileageReport" Method="spSelectVehicleMileageReport" IsComposable="true">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.spSelectDistrictsLecInfo" Method="spSelectDistrictsLecInfo">
+    <Parameter Name="District" Parameter="district" Type="System.String" DbType="Char(2)" />
+    <ElementType Name="spSelectDistrictsLecInfoResult">
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyVisitDetail" Method="spSelectAgencyVisitDetail">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyVisitDetailResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_ID" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_City" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitDate" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FCS_aav_onsite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_attempted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_notonsite" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FCS_aav_phone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spDeleteVehicleMileage" Method="spDeleteVehicleMileage">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertVehicleMileage" Method="spInsertVehicleMileage">
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Mileage" Parameter="mileage" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateVehicleMileage" Method="spUpdateVehicleMileage">
+    <Parameter Name="FCS_vm_ID" Parameter="fCS_vm_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FCS_vm_Date" Parameter="fCS_vm_Date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FCS_vm_Mileage" Parameter="fCS_vm_Mileage" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectAgencyOfficersWithoutRISSNET" Method="spSelectAgencyOfficersWithoutRISSNET">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyOfficersWithoutRISSNETResult">
+      <Column Name="temp_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="temp_of_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_Codes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oi_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneExtension" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_FaxNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Zip" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spInsertScheduleActivityNew" Method="spInsertScheduleActivityNew">
+    <Parameter Name="emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="atype_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nm_name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="visit_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="misc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="training_gain" Type="System.String" DbType="Text" />
+    <Parameter Name="entered_by_emp_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateScheduleActivityNew" Method="spUpdateScheduleActivityNew">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="emp_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="atype_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nm_name" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nm_state" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="visit_date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="misc_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="training_gain" Type="System.String" DbType="Text" />
+    <Parameter Name="entered_by_emp_ID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivity" Method="spInsertActivity">
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="VisitDate" Parameter="visitDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="atypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="RecordID" Parameter="recordID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateActivity" Method="spUpdateActivity">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="VisitDate" Parameter="visitDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivityAgencyVisit" Method="spInsertActivityAgencyVisit">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyKey" Parameter="agencyKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NonMemberName" Parameter="nonMemberName" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="NonMemberCity" Parameter="nonMemberCity" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NonMemberState" Parameter="nonMemberState" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PersonContacted" Parameter="personContacted" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AttemptedContact" Parameter="attemptedContact" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="OnSite" Parameter="onSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Attempted" Parameter="attempted" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NotOnSite" Parameter="notOnSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Atix" Parameter="atix" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CISOP" Parameter="cISOP" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="SSL" Parameter="sSL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Remote" Parameter="remote" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Demoed" Parameter="demoed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Background" Parameter="background" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Other" Parameter="other" Type="System.String" DbType="Text" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateActivityAgencyVisit" Method="spUpdateActivityAgencyVisit">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AgencyKey" Parameter="agencyKey" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NonMemberName" Parameter="nonMemberName" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="NonMemberCity" Parameter="nonMemberCity" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NonMemberState" Parameter="nonMemberState" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PersonContacted" Parameter="personContacted" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="AttemptedContact" Parameter="attemptedContact" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="OnSite" Parameter="onSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Attempted" Parameter="attempted" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NotOnSite" Parameter="notOnSite" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Atix" Parameter="atix" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CISOP" Parameter="cISOP" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="SSL" Parameter="sSL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Remote" Parameter="remote" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Demoed" Parameter="demoed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Background" Parameter="background" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Other" Parameter="other" Type="System.String" DbType="Text" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivityMisc" Method="spInsertActivityMisc">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MiscTypeID" Parameter="miscTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivityTrainingNew" Method="spInsertActivityTrainingNew">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TypeID" Parameter="typeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Sponsored" Parameter="sponsored" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Participated" Parameter="participated" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MeetingName" Parameter="meetingName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Agencies" Parameter="agencies" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Attendees" Parameter="attendees" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="Value" Parameter="value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gain" Parameter="gain" Type="System.String" DbType="Text" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="Text" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateActivityTrainingNew" Method="spUpdateActivityTrainingNew">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Sponsored" Parameter="sponsored" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Participated" Parameter="participated" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MeetingName" Parameter="meetingName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Agencies" Parameter="agencies" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Attendees" Parameter="attendees" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Hours" Parameter="hours" Type="System.Double" DbType="Float" />
+    <Parameter Name="Value" Parameter="value" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gains" Parameter="gains" Type="System.String" DbType="Text" />
+    <Parameter Name="Notes" Parameter="notes" Type="System.String" DbType="Text" />
+    <Parameter Name="State" Parameter="state" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateActivityMisc" Method="spUpdateActivityMisc">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MiscTypeID" Parameter="miscTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spInsertActivityInfoDist" Method="spInsertActivityInfoDist">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Items" Parameter="items" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Recipients" Parameter="recipients" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdateActivityInfoDist" Method="spUpdateActivityInfoDist">
+    <Parameter Name="ActivityID" Parameter="activityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Items" Parameter="items" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Recipients" Parameter="recipients" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spSelectAgencyOfficersWithRISSNET" Method="spSelectAgencyOfficersWithRISSNET">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyOfficersWithRISSNETResult">
+      <Column Name="temp_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="temp_of_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_Codes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oi_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneExtension" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_FaxNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_OTP" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Zip" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.spSelectAgencyNumber" Method="spSelectAgencyNumber">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spSelectAgencyNumberResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

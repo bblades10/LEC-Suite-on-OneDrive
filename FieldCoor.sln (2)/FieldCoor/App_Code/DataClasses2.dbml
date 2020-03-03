@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Employee" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SRV-DBS1;Initial Catalog=Employee;Persist Security Info=True;User ID=MOCIC_IT" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EmployeeConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_INT_DisplayCalRecord" Method="sp_INT_DisplayCalRecord">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_INT_DisplayCalRecordResult">
+      <Column Name="StartDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReturnTime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Category" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cc_Category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cs_SubCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_INT_UpdateCalRecord" Method="sp_INT_UpdateCalRecord">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ReturnTime" Parameter="returnTime" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Category" Parameter="category" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCategory" Parameter="subCategory" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="Text" />
+    <Parameter Name="Edited_By" Parameter="edited_By" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_INT_DeletePersonalRecord" Method="sp_INT_DeletePersonalRecord">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Deleted_By" Parameter="deleted_By" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_INT_AddCalRecord" Method="sp_INT_AddCalRecord">
+    <Parameter Name="Employee_ID" Parameter="employee_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="StartTime" Parameter="startTime" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ReturnTime" Parameter="returnTime" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Category" Parameter="category" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SubCategory" Parameter="subCategory" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Comment" Parameter="comment" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Created_By" Parameter="created_By" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_INT_CurStatus" Method="sp_INT_CurStatus">
+    <Parameter Name="TheDate" Parameter="theDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <ElementType Name="sp_INT_CurStatusResult">
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReturnTime" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cc_Category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cs_SubCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+</Database>

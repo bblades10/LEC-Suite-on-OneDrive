@@ -1,0 +1,277 @@
+﻿<%@ Master Language="C#" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<script type="text/jscript" language="javascript">
+    function NewWindow(mypage, myname, w, h, scroll) {
+        var winl = (screen.width - w) / 2;
+        var wint = (screen.height - h) / 2;
+        winprops = 'height=' + h + ',width=' + w + ',top=' + wint + ',left=' + winl + ',status=no,location=no,toolbar=no,titlebar=no,menuebar=no,scrollbars=' + scroll + ',resizable'
+        win = window.open(mypage, myname, winprops)
+        if (parseInt(navigator.appVersion) >= 4) {
+            win.window.focus();
+        }
+    }
+
+</script>
+
+<script runat="server">
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        string UserID;
+        UserID = "";
+        if (Session["EmpID"] == null)
+        {
+
+
+            var claimsIdentity = Context.User.Identity as Microsoft.IdentityModel.Claims.IClaimsIdentity;
+
+            foreach (var claim in claimsIdentity.Claims)
+            {
+                if (claim.ClaimType == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn")
+                {
+                    Session["claim"] = claim.Value;
+                }
+            }
+
+
+            //UserID = HttpContext.Current.User.Identity.Name;
+            UserID = Session["claim"].ToString().Replace("@mocic.riss.net", "");
+
+            //if (UserID == "bblades")
+            //{
+            //    UserID = "cleidy";
+            //}
+
+            DataClassesDataContext FCSUser = new DataClassesDataContext();
+            var records = FCSUser.spSelectSuiteUserInfo(UserID);
+
+            foreach (spSelectSuiteUserInfoResult record in records)
+            {
+                Session["EmpID"] = record.ID;
+                Session["EMail"] = record.EmailAddress;
+                Session["UserName"] = record.UserName;
+                Session["FirstName"] = record.FirstName;
+                Session["LastName"] = record.LastName;
+                Session["District"] = record.FCS_u_district;
+                Session["HomeDistrict"] = record.FCS_u_home_district;
+                Session["AccessLevel"] = record.FCS_u_access_level;
+            }
+
+            //if (UserID == "bgoodrich")
+            //{
+            //    Response.Redirect("userselect.aspx");
+            //}
+
+        }
+
+        if (Session["AccessLevel"] == null)
+        {
+            Response.Redirect("noaccess.aspx?id=" + UserID);
+        }
+        else
+        {
+            lblName.Text = "Welcome " + Session["FirstName"] + " " + Session["LastName"];
+        }
+
+        //lblName.Text = "Welcome " + UserID;
+    }
+
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Law Enforcement Coordinator Suite</title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="wrapper" align="center" runat="server">
+        <form id="form1" class="form-horizontal" runat="server">
+            <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+            </asp:ToolkitScriptManager>
+            <div id="section-head">
+                <div id="nav-primary">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li><a href="default.aspx">Home</a></li>
+                                    <li><a href="https://mocicweb.riss.net/travelapp/redirectnew.aspx?u=<%= Session["UserName"] %>" target="_blank">Expenses</a></li>
+                                    <li><a href="https://mociclec.riss.net/memberproject/agencyselection.aspx" target="_blank">Member Usage</a></li>
+                                    <li><a href="appreapp.aspx" target="_blank">MTT</a></li>
+                                    <li><a href="http://www.gsa.gov/portal/content/104877?utm_source=OGP&utm_medium=print-radio&utm_term=perdiem&utm_campaign=shortcuts" target="_blank">Per Diem</a></li>
+                                    <li><a href="https://outlook.office.com" target="_blank">Webmail</a></li>
+                                    <li><a href="https://mocic.bamboohr.com" target="_blank">Time Sheet</a></li>
+                                    <li><a href="https://login.microsoftonline.com/login.srf?wa=wsignin1.0&whr=riss.net&wreply=https%3A%2F%2Friss.sharepoint.com/MOCIC/" target="_blank">Sharepoint</a></li>
+
+                                    <% if (Convert.ToInt16(Session["AccessLevel"]) == 4)
+                                        {
+                                            Response.Write("<li><a href='users.aspx'>Admin</a></li>");
+                                        }
+                                    %>
+                                </ul>
+                            </td>
+                            <td class="label" align="right">
+                                <asp:Label ID="lblName" Visible="true" CssClass="label" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="head-pic">
+                </div>
+                <div id="suite-links">
+                    <ul>
+                        <%--<li><a href="default.aspx">Home</a></li>--%>
+                        <li><a>Activity</a>
+                            <ul>
+                                <% if (Convert.ToInt16(Session["AccessLevel"]) == 1 || Convert.ToInt16(Session["AccessLevel"]) == 4)
+                                    { %>
+                                <li><a href="addactivity.aspx">Add Activity</a></li>
+                                <% } %>
+                                <li><a href="listactivity.aspx">List Activities</a></li>
+                                <li><a href="searchactivity.aspx">Search Activities</a></li>
+                                <% if (Convert.ToInt16(Session["AccessLevel"]) == 1 || Convert.ToInt16(Session["AccessLevel"]) == 4)
+                                    { %>
+                                <li><a href="addmileage.aspx">Add Vehicle Mileage</a></li>
+                                <% } %>
+                                <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
+                                    { %>
+                                <li><a href="listmileage.aspx">List Vehicle Mileage</a></li>
+                                <li><a href="fullactivityreportselection.aspx">Full Activity Report</a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <li><a>App/Reapp</a>
+                            <ul>
+                                <li><a href="uploadappreapp.aspx">Upload App/Reapp</a></li>
+                                <li><a href="listuploads.aspx">List App/Reapp(s)</a></li>
+                                <li><a href="appform.docx" title="Right-Click and Save Target As">Download App/Reapp Form</a></li>
+                            </ul>
+                        </li>
+                        <% if (Convert.ToInt16(Session["AccessLevel"]) == 1 || Convert.ToInt16(Session["AccessLevel"]) == 4)
+                            { %>
+                        <li><a>Calendar</a>
+                            <ul>
+                                <li><a href="addcalendarnew.aspx">Add Calendar Event</a></li>
+                                <li><a href="listcalendarnew.aspx">List Calendar Events</a></li>
+                                <li><a href="currentstaffcalendarnew.aspx">Current Staff Calendar</a></li>
+                                <%--<li><a href="addcalendarnew.aspx">Add Calendar Event New</a></li>
+                                <li><a href="listcalendarnew.aspx">List Calendar Events New</a></li>
+                                <li><a href="currentstaffcalendarnew.aspx">Current Staff Calendar New</a></li>--%>
+                            </ul>
+                        </li>
+                        <% } %>
+                        <li><a>PowerPoints</a>
+                            <ul>
+                                <li><a href="Collaboration Website Presentation.pptx">Collaboration Website</a></li>
+                                <li><a href="MOCIC Services Overview.pptx">MOCIC Overview</a></li>
+                                <li><a href="Officer Safety Website Presentation.pptx">Officer Safety Website</a></li>
+                                <li><a href="RISS Overview August 2013.pptx">RISS Overview</a></li>
+                                <li><a href="RISSafe PowerPoint - revised 05-21-2013.pptx">RISSafe PowerPoint</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Reports</a>
+                            <ul>
+                                <li><a href="reportselection.aspx?rname=activity">Activity</a></li>
+                                <li><a href="reportselection.aspx?rname=agencycontactdates">Agency Contact Dates</a></li>
+                                <li><a href="reportselection.aspx?rname=agencyvisits">Agency Visits</a></li>
+                                <li><a href="reportselection.aspx?rname=agencyvisitdetail">Agency Visit Detail</a></li>
+                                <li><a href="reportselection.aspx?rname=agencyvisitsummary">Agency Visit Summary</a></li>
+                                <li><a href="reportselection.aspx?rname=notonsite">Agencies Not Contacted</a></li>
+                                <li><a href="reportselection.aspx?rname=attemptedonsite">Attempted On Site</a></li>
+                                
+                                <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
+                                    {%>
+                                <li><a href="reportselection.aspx?rname=historicschedule">Historic Schedule Report</a></li>
+                                <li><a href="reportselection.aspx?rname=impact">Impact Statement</a></li>
+                                <% } %>
+                                <li><a href="reportselection.aspx?rname=info">Info/Intel Distributed</a></li>
+                                <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
+                                    {%>
+                                <li><a href="reportselection.aspx?rname=liaisoncontacts">Liaison Contacts</a></li>
+                                <% } %>
+                                <li><a href="reportselection.aspx?rname=meetings">Meetings/Conferences</a></li>
+                                <li><a href="membershipreport.aspx">Membership&nbsp;&nbsp;&nbsp;</a></li>
+                                <!--<li><a href="certexpire.aspx">Officer Certificate</a></li>-->
+                                <li><a href="reportselection.aspx?rname=onsite">On Site</a></li>
+                                <li><a href="reportselection.aspx?rname=onsitenonmember">On Site Non Member</a></li>
+                                <li><a href="reportselection.aspx?rname=demoed">Orientations</a></li>
+                                <li><a href="reportselection.aspx?rname=participation">Participation Report</a></li>
+                                <li><a href="reportselection.aspx?rname=participationbystate">Participation By State</a></li>
+                                <li><a href="reportselection.aspx?rname=presentationreport">Presentation Report</a></li>
+                                <li><a href="formsorderform2.aspx">Promotional Materials</a></li>
+                                <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
+                                    {%>
+                                <li><a href="reportselection.aspx?rname=rissafereport">RISSafe Report</a></li>
+                                <li><a href="reportselection.aspx?rname=summaryreport">Summary Report</a></li>
+                                <% } %>
+                                <li><a href="reportselection.aspx?rname=state">State Users Report</a></li>
+                                <li><a href="reportselection.aspx?rname=training">Training       </a></li>
+                                <% if (Convert.ToInt16(Session["AccessLevel"]) == 4 || Convert.ToInt16(Session["AccessLevel"]) == 3)
+                                    { %>
+                                <li><a href="reportselection.aspx?rname=vehiclemileagereport">Vehicle Mileage</a></li>
+                                <% } %>
+                                <li><a href="reportselection.aspx?rname=withcisop">With CISOP</a></li>
+                                <li><a href="reportselection.aspx?rname=withcisopfromsuite">With CISOP From Suite</a></li>
+                                <li><a href="reportselection.aspx?rname=withoutcisop">Without CISOP</a></li>
+                                <!--<li><a href="withoutcisopallselect.aspx">Without CISOP All</a></li>-->
+
+                            </ul>
+                        </li>
+                        <li><a>Schedule</a>
+                            <ul>
+                                <% if (Convert.ToInt16(Session["AccessLevel"]) == 1)
+                                    { %>
+                                <li><a href="addschedule.aspx">Add Schedule Event</a></li>
+                                <% } %>
+                                <li><a href="listschedule.aspx">List Schedule Events</a></li>
+                                <li><a href="allfcschedule.aspx">All FC's Schedules</a></li>
+                                <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
+                                    {%>
+                                <li><a href="listscheduleadmin.aspx">Schedule Events Selection</a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <li><a>Search</a>
+                            <ul>
+                                <li><a href="agencysearch.aspx">Agency Search</a></li>
+                                <li><a href="membersearch.aspx">Member Search</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Success Story</a>
+                            <ul>
+                                <li><a href="successstory.aspx">Add Success Story</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Generate Email</a>
+                            <ul>
+                                <li><a href="email.aspx">Generate State Email</a></li>
+                            </ul>
+                        </li>
+                        <li><a>LEC Documents</a>
+                            <ul>
+                                <li><a href="https://riss.sharepoint.com/MOCIC/Law%20Enforcement%20Coordinator%20Documents/Forms/AllItems.aspx">LEC Documents</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Misc</a>
+                            <ul>
+                                <li><a href="https://mocicweb.riss.net/flex/default.aspx" target="_blank" >Cafeteria Plan</a></li>
+                                <li><a href="https://riss.sharepoint.com/MOCIC/Shared%20Documents/motaxexempt.pdf" target="_blank" >MO Tax Exempt Letter</a></li>
+                                <li><a href="https://mocicweb.riss.net/accidentreport/default.aspx" target="_blank" >Vehicle Accident Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
