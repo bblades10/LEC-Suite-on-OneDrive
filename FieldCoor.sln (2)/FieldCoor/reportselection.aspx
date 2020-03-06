@@ -162,6 +162,9 @@
             case "agencycontactdates":
                 Response.Redirect("agencycontactdates.aspx?fc=" + dropRegion.SelectedItem.Value);
                 break;
+            case "officertype":
+                Response.Redirect("headexcrepaltreport.aspx?d=" + dropRegion.SelectedItem.Value + "&type=" + dropOfficerType.SelectedItem.Value);
+                break;
         }
 
     }
@@ -173,6 +176,7 @@
         divFieldCoor.Visible = true;
         divDates.Visible = true;
         divCISOPOverdue.Visible = false;
+        divOfficerType.Visible = false;
         switch (Request.QueryString["rname"])
         {
             case "summaryreport":
@@ -369,6 +373,14 @@
                 divDistrict.Visible = true;
                 divState.Visible = false;
                 break;
+            case "officertype":
+                lblTitle.Text = "Agency Head/Exec/Rep/Alt Report";
+                divDistrict.Visible = true;
+                divDates.Visible = false;
+                divState.Visible = false;
+                divFieldCoor.Visible = false;
+                divOfficerType.Visible = true;
+                break;
         }
     }
 
@@ -501,6 +513,23 @@
     </tr>
 </table>
 </div>
+
+<div id="divOfficerType" runat="server">
+<table cellpadding="10" cellspacing="0" border="0">
+    <tr>
+        <td>
+            Type: <asp:DropDownList ID="dropOfficerType" runat="server">
+                        <asp:ListItem Value="1">Head</asp:ListItem>
+                        <asp:ListItem Value="5">Exec</asp:ListItem>
+                        <asp:ListItem Value="6">Rep</asp:ListItem>
+                        <asp:ListItem Value="7">Alt</asp:ListItem>
+                   </asp:DropDownList>
+        </td>
+    </tr>
+</table>
+</div>
+
+
 
 <table cellpadding="10" cellspacing="0" border="0">
     <tr>
