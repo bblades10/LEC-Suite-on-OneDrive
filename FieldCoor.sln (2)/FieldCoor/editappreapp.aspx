@@ -85,7 +85,12 @@
         DataClassesDataContext myLEC = new DataClassesDataContext();
         var objRS = myDB.spSelectDistrictsLecInfo(dropDistrict.SelectedValue.ToString()).FirstOrDefault();
 
-        objMM.CC.Add(objRS.EmailAddress);
+        if (objRS.EmailAddress != null)
+        {
+            objMM.CC.Add(objRS.EmailAddress);
+        }
+
+        
 
         //if (dropDistrict.SelectedValue == "01")
         //{
