@@ -180,6 +180,7 @@
                                 <li><a href="reportselection.aspx?rname=agencyvisits">Agency Visits</a></li>
                                 <li><a href="reportselection.aspx?rname=agencyvisitdetail">Agency Visit Detail</a></li>
                                 <li><a href="reportselection.aspx?rname=agencyvisitsummary">Agency Visit Summary</a></li>
+                                <li><a href="agencybycounty.aspx">Agencies by County</a></li>
                                 <li><a href="reportselection.aspx?rname=notonsite">Agencies Not Contacted</a></li>
                                 <li><a href="reportselection.aspx?rname=attemptedonsite">Attempted On Site</a></li>
                                 <li><a href="reportselection.aspx?rname=officertype">H/E/R/A Report</a></li>
