@@ -180,6 +180,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     
     <h1>Add Personal Calendar</h1>
+    <p style="color:red">Items entered below are for your own personel use within the suite.  You will still need to add everything appropriate to Bamboo HR for everyone else to see.</p>
     <table width="400" border="0" cellspacing="0" cellpadding="5">
         <tr>
             <td colspan="3">

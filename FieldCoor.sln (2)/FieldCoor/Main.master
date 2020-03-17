@@ -157,8 +157,8 @@
                             <ul>
                                 <li><a href="addcalendarnew.aspx">Add Calendar Event</a></li>
                                 <li><a href="listcalendarnew.aspx">List Calendar Events</a></li>
-                                <li><a href="currentstaffcalendarnew.aspx">Current Staff Calendar</a></li>
-                                <%--<li><a href="addcalendarnew.aspx">Add Calendar Event New</a></li>
+                                <%--<li><a href="currentstaffcalendarnew.aspx">Current Staff Calendar</a></li>
+                                <li><a href="addcalendarnew.aspx">Add Calendar Event New</a></li>
                                 <li><a href="listcalendarnew.aspx">List Calendar Events New</a></li>
                                 <li><a href="currentstaffcalendarnew.aspx">Current Staff Calendar New</a></li>--%>
                             </ul>
