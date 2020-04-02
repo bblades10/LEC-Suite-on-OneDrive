@@ -126,6 +126,10 @@
         {
             strBody += txtProgram.Text + " RISS Program Flier (each set contains 50 fliers)<br />";
         }
+        if (txtRISSWebsite.Text != "0" && txtRISSWebsite.Text != "")
+        {
+            strBody += txtRISSWebsite.Text + " RISS Website Informational Flier (each set contains 50 fliers)<br />";
+        }
         if (txtImpact.Text != "0" && txtImpact.Text != "")
         {
             strBody += txtImpact.Text + " MOCIC Impact Statement Fliers (each set contains 50 Fliers)<br />";
@@ -170,8 +174,8 @@
         {
             strBody += txtBatchBrochure.Text + " Batch Upload Brochure (each set contains 25 Brochures)<br />";
         }
-        
-        
+
+
 
 
         objMM.Body = strBody;
@@ -353,6 +357,11 @@
                     <td><asp:TextBox ID="txtProgram" Columns="3" runat="server"></asp:TextBox></td>
                     <td></td>
                     <td>RISS Program</td>
+                </tr>
+                <tr>
+                    <td><asp:TextBox ID="txtRISSWebsite" Columns="3" runat="server"></asp:TextBox></td>
+                    <td></td>
+                    <td>RISS Website</td>
                 </tr>
                 <tr>
                     <td valign="top"><asp:TextBox ID="txtImpact" Columns="3" runat="server"></asp:TextBox></td>
