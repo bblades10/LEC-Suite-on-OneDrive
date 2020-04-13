@@ -98,6 +98,10 @@
                 strBody += " - Pink<br />";
             }
         }
+        if (txtBatchBrochure.Text != "0" && txtBatchBrochure.Text != "")
+        {
+            strBody += txtBatchBrochure.Text + " Batch Upload Flier (each set contains 50 Fliers)<br />";
+        }
         if (txtBelong.Text != "0" && txtBelong.Text != "")
         {
             strBody += txtBelong.Text + " I Belong To MOCIC Flier (each set contains 50 Fliers)<br />";
@@ -170,10 +174,7 @@
                 strBody += " - Wisconsin<br />";
             }
         }
-        if (txtBatchBrochure.Text != "0" && txtBatchBrochure.Text != "")
-        {
-            strBody += txtBatchBrochure.Text + " Batch Upload Brochure (each set contains 25 Brochures)<br />";
-        }
+        
 
 
 
@@ -324,6 +325,11 @@
                     <td colspan="3"><b><u>FLYERS</u></b><br /><i>(Each set contains 50 flyers.  Enter # of sets.)</i></td>
                 </tr>
                 <tr>
+                    <td><asp:TextBox ID="txtBatchBrochure" Columns="3" runat="server"></asp:TextBox></td>
+                    <td></td>
+                    <td>Batch Upload</td>
+                </tr>
+                <tr>
                     <td><asp:TextBox ID="txtBelong" Columns="3" runat="server"></asp:TextBox></td>
                     <td></td>
                     <td>I Belong to MOCIC...Now What</td>
@@ -402,19 +408,15 @@
                         </table>
                     </td>
                 </tr>
-                <tr>
+                <%--<tr>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="3"><b><u>BROCHURES</u></b><br /><i>(Each set contains 25 brochures.  Enter # of sets.)</i></td>
-                </tr>
-                <tr>
-                    <td><asp:TextBox ID="txtBatchBrochure" Columns="3" runat="server"></asp:TextBox></td>
-                    <td></td>
-                    <td>Batch Upload</td>
-                </tr>
+                </tr>--%>
+                
             </table>
         </td>
     </tr>
