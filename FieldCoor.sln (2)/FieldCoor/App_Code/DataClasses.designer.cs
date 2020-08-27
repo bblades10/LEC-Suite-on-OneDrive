@@ -577,13 +577,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		return ((int)(result.ReturnValue));
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spSelectAgencyOfficersWithoutRISSNET")]
-	public ISingleResult<spSelectAgencyOfficersWithoutRISSNETResult> spSelectAgencyOfficersWithoutRISSNET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ag_Key)
-	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ag_Key);
-		return ((ISingleResult<spSelectAgencyOfficersWithoutRISSNETResult>)(result.ReturnValue));
-	}
-	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spInsertScheduleActivityNew")]
 	public int spInsertScheduleActivityNew([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> emp_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> atype_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ag_Key, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nm_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nm_city, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nm_state, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> visit_date, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> misc_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Text")] string training_gain, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> entered_by_emp_ID)
 	{
@@ -707,6 +700,13 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		return ((int)(result.ReturnValue));
 	}
 	
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spSelectAgencyNumber")]
+	public ISingleResult<spSelectAgencyNumberResult> spSelectAgencyNumber([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD)
+	{
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+		return ((ISingleResult<spSelectAgencyNumberResult>)(result.ReturnValue));
+	}
+	
 	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spSelectAgencyOfficersWithRISSNET")]
 	public ISingleResult<spSelectAgencyOfficersWithRISSNETResult> spSelectAgencyOfficersWithRISSNET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ag_Key)
 	{
@@ -714,11 +714,11 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		return ((ISingleResult<spSelectAgencyOfficersWithRISSNETResult>)(result.ReturnValue));
 	}
 	
-	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spSelectAgencyNumber")]
-	public ISingleResult<spSelectAgencyNumberResult> spSelectAgencyNumber([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="VarChar(50)")] string iD)
+	[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.spSelectAgencyOfficersWithoutRISSNET")]
+	public ISingleResult<spSelectAgencyOfficersWithoutRISSNETResult> spSelectAgencyOfficersWithoutRISSNET([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ag_Key)
 	{
-		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-		return ((ISingleResult<spSelectAgencyNumberResult>)(result.ReturnValue));
+		IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ag_Key);
+		return ((ISingleResult<spSelectAgencyOfficersWithoutRISSNETResult>)(result.ReturnValue));
 	}
 }
 
@@ -6696,6 +6696,436 @@ public partial class spSelectAgencyVisitDetailResult
 	}
 }
 
+public partial class spSelectAgencyNumberResult
+{
+	
+	private string _ag_Name;
+	
+	private string _ag_State;
+	
+	private string _ag_Region;
+	
+	public spSelectAgencyNumberResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	public string ag_Name
+	{
+		get
+		{
+			return this._ag_Name;
+		}
+		set
+		{
+			if ((this._ag_Name != value))
+			{
+				this._ag_Name = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_State", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+	public string ag_State
+	{
+		get
+		{
+			return this._ag_State;
+		}
+		set
+		{
+			if ((this._ag_State != value))
+			{
+				this._ag_State = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_Region", DbType="VarChar(4)")]
+	public string ag_Region
+	{
+		get
+		{
+			return this._ag_Region;
+		}
+		set
+		{
+			if ((this._ag_Region != value))
+			{
+				this._ag_Region = value;
+			}
+		}
+	}
+}
+
+public partial class spSelectAgencyOfficersWithRISSNETResult
+{
+	
+	private int _temp_ID;
+	
+	private System.Nullable<int> _temp_of_ag_Key;
+	
+	private System.Nullable<int> _temp_of_Key;
+	
+	private string _temp_of_Title;
+	
+	private string _temp_of_FirstName;
+	
+	private string _temp_of_LastName;
+	
+	private string _temp_of_Codes;
+	
+	private string _temp_of_eMail;
+	
+	private string _temp_oi_eMail;
+	
+	private string _temp_oi_UserID;
+	
+	private string _temp_PhoneNumber;
+	
+	private string _temp_PhoneExtension;
+	
+	private string _temp_FaxNumber;
+	
+	private string _temp_OTP;
+	
+	private string _temp_oa_Line1;
+	
+	private string _temp_oa_Line2;
+	
+	private string _temp_oa_Line3;
+	
+	private string _temp_oa_City;
+	
+	private string _temp_oa_State;
+	
+	private string _temp_oa_Zip;
+	
+	public spSelectAgencyOfficersWithRISSNETResult()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_ID", DbType="Int NOT NULL")]
+	public int temp_ID
+	{
+		get
+		{
+			return this._temp_ID;
+		}
+		set
+		{
+			if ((this._temp_ID != value))
+			{
+				this._temp_ID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_ag_Key", DbType="Int")]
+	public System.Nullable<int> temp_of_ag_Key
+	{
+		get
+		{
+			return this._temp_of_ag_Key;
+		}
+		set
+		{
+			if ((this._temp_of_ag_Key != value))
+			{
+				this._temp_of_ag_Key = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Key", DbType="Int")]
+	public System.Nullable<int> temp_of_Key
+	{
+		get
+		{
+			return this._temp_of_Key;
+		}
+		set
+		{
+			if ((this._temp_of_Key != value))
+			{
+				this._temp_of_Key = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Title", DbType="VarChar(100)")]
+	public string temp_of_Title
+	{
+		get
+		{
+			return this._temp_of_Title;
+		}
+		set
+		{
+			if ((this._temp_of_Title != value))
+			{
+				this._temp_of_Title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_FirstName", DbType="VarChar(100)")]
+	public string temp_of_FirstName
+	{
+		get
+		{
+			return this._temp_of_FirstName;
+		}
+		set
+		{
+			if ((this._temp_of_FirstName != value))
+			{
+				this._temp_of_FirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_LastName", DbType="VarChar(100)")]
+	public string temp_of_LastName
+	{
+		get
+		{
+			return this._temp_of_LastName;
+		}
+		set
+		{
+			if ((this._temp_of_LastName != value))
+			{
+				this._temp_of_LastName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Codes", DbType="VarChar(100)")]
+	public string temp_of_Codes
+	{
+		get
+		{
+			return this._temp_of_Codes;
+		}
+		set
+		{
+			if ((this._temp_of_Codes != value))
+			{
+				this._temp_of_Codes = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_eMail", DbType="VarChar(100)")]
+	public string temp_of_eMail
+	{
+		get
+		{
+			return this._temp_of_eMail;
+		}
+		set
+		{
+			if ((this._temp_of_eMail != value))
+			{
+				this._temp_of_eMail = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oi_eMail", DbType="VarChar(100)")]
+	public string temp_oi_eMail
+	{
+		get
+		{
+			return this._temp_oi_eMail;
+		}
+		set
+		{
+			if ((this._temp_oi_eMail != value))
+			{
+				this._temp_oi_eMail = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oi_UserID", DbType="VarChar(100)")]
+	public string temp_oi_UserID
+	{
+		get
+		{
+			return this._temp_oi_UserID;
+		}
+		set
+		{
+			if ((this._temp_oi_UserID != value))
+			{
+				this._temp_oi_UserID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_PhoneNumber", DbType="VarChar(100)")]
+	public string temp_PhoneNumber
+	{
+		get
+		{
+			return this._temp_PhoneNumber;
+		}
+		set
+		{
+			if ((this._temp_PhoneNumber != value))
+			{
+				this._temp_PhoneNumber = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_PhoneExtension", DbType="VarChar(100)")]
+	public string temp_PhoneExtension
+	{
+		get
+		{
+			return this._temp_PhoneExtension;
+		}
+		set
+		{
+			if ((this._temp_PhoneExtension != value))
+			{
+				this._temp_PhoneExtension = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_FaxNumber", DbType="VarChar(100)")]
+	public string temp_FaxNumber
+	{
+		get
+		{
+			return this._temp_FaxNumber;
+		}
+		set
+		{
+			if ((this._temp_FaxNumber != value))
+			{
+				this._temp_FaxNumber = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_OTP", DbType="VarChar(100)")]
+	public string temp_OTP
+	{
+		get
+		{
+			return this._temp_OTP;
+		}
+		set
+		{
+			if ((this._temp_OTP != value))
+			{
+				this._temp_OTP = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line1", DbType="VarChar(100)")]
+	public string temp_oa_Line1
+	{
+		get
+		{
+			return this._temp_oa_Line1;
+		}
+		set
+		{
+			if ((this._temp_oa_Line1 != value))
+			{
+				this._temp_oa_Line1 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line2", DbType="VarChar(100)")]
+	public string temp_oa_Line2
+	{
+		get
+		{
+			return this._temp_oa_Line2;
+		}
+		set
+		{
+			if ((this._temp_oa_Line2 != value))
+			{
+				this._temp_oa_Line2 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line3", DbType="VarChar(100)")]
+	public string temp_oa_Line3
+	{
+		get
+		{
+			return this._temp_oa_Line3;
+		}
+		set
+		{
+			if ((this._temp_oa_Line3 != value))
+			{
+				this._temp_oa_Line3 = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_City", DbType="VarChar(100)")]
+	public string temp_oa_City
+	{
+		get
+		{
+			return this._temp_oa_City;
+		}
+		set
+		{
+			if ((this._temp_oa_City != value))
+			{
+				this._temp_oa_City = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_State", DbType="VarChar(100)")]
+	public string temp_oa_State
+	{
+		get
+		{
+			return this._temp_oa_State;
+		}
+		set
+		{
+			if ((this._temp_oa_State != value))
+			{
+				this._temp_oa_State = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Zip", DbType="VarChar(100)")]
+	public string temp_oa_Zip
+	{
+		get
+		{
+			return this._temp_oa_Zip;
+		}
+		set
+		{
+			if ((this._temp_oa_Zip != value))
+			{
+				this._temp_oa_Zip = value;
+			}
+		}
+	}
+}
+
 public partial class spSelectAgencyOfficersWithoutRISSNETResult
 {
 	
@@ -6734,6 +7164,8 @@ public partial class spSelectAgencyOfficersWithoutRISSNETResult
 	private string _temp_oa_State;
 	
 	private string _temp_oa_Zip;
+	
+	private string _temp_oc_Key;
 	
 	public spSelectAgencyOfficersWithoutRISSNETResult()
 	{
@@ -7026,415 +7458,19 @@ public partial class spSelectAgencyOfficersWithoutRISSNETResult
 			}
 		}
 	}
-}
-
-public partial class spSelectAgencyOfficersWithRISSNETResult
-{
 	
-	private int _temp_ID;
-	
-	private System.Nullable<int> _temp_of_ag_Key;
-	
-	private System.Nullable<int> _temp_of_Key;
-	
-	private string _temp_of_Title;
-	
-	private string _temp_of_FirstName;
-	
-	private string _temp_of_LastName;
-	
-	private string _temp_of_Codes;
-	
-	private string _temp_of_eMail;
-	
-	private string _temp_oi_eMail;
-	
-	private string _temp_PhoneNumber;
-	
-	private string _temp_PhoneExtension;
-	
-	private string _temp_FaxNumber;
-	
-	private string _temp_OTP;
-	
-	private string _temp_oa_Line1;
-	
-	private string _temp_oa_Line2;
-	
-	private string _temp_oa_Line3;
-	
-	private string _temp_oa_City;
-	
-	private string _temp_oa_State;
-	
-	private string _temp_oa_Zip;
-	
-	public spSelectAgencyOfficersWithRISSNETResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_ID", DbType="Int NOT NULL")]
-	public int temp_ID
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oc_Key", DbType="VarChar(20)")]
+	public string temp_oc_Key
 	{
 		get
 		{
-			return this._temp_ID;
+			return this._temp_oc_Key;
 		}
 		set
 		{
-			if ((this._temp_ID != value))
+			if ((this._temp_oc_Key != value))
 			{
-				this._temp_ID = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_ag_Key", DbType="Int")]
-	public System.Nullable<int> temp_of_ag_Key
-	{
-		get
-		{
-			return this._temp_of_ag_Key;
-		}
-		set
-		{
-			if ((this._temp_of_ag_Key != value))
-			{
-				this._temp_of_ag_Key = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Key", DbType="Int")]
-	public System.Nullable<int> temp_of_Key
-	{
-		get
-		{
-			return this._temp_of_Key;
-		}
-		set
-		{
-			if ((this._temp_of_Key != value))
-			{
-				this._temp_of_Key = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Title", DbType="VarChar(100)")]
-	public string temp_of_Title
-	{
-		get
-		{
-			return this._temp_of_Title;
-		}
-		set
-		{
-			if ((this._temp_of_Title != value))
-			{
-				this._temp_of_Title = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_FirstName", DbType="VarChar(100)")]
-	public string temp_of_FirstName
-	{
-		get
-		{
-			return this._temp_of_FirstName;
-		}
-		set
-		{
-			if ((this._temp_of_FirstName != value))
-			{
-				this._temp_of_FirstName = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_LastName", DbType="VarChar(100)")]
-	public string temp_of_LastName
-	{
-		get
-		{
-			return this._temp_of_LastName;
-		}
-		set
-		{
-			if ((this._temp_of_LastName != value))
-			{
-				this._temp_of_LastName = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_Codes", DbType="VarChar(100)")]
-	public string temp_of_Codes
-	{
-		get
-		{
-			return this._temp_of_Codes;
-		}
-		set
-		{
-			if ((this._temp_of_Codes != value))
-			{
-				this._temp_of_Codes = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_of_eMail", DbType="VarChar(100)")]
-	public string temp_of_eMail
-	{
-		get
-		{
-			return this._temp_of_eMail;
-		}
-		set
-		{
-			if ((this._temp_of_eMail != value))
-			{
-				this._temp_of_eMail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oi_eMail", DbType="VarChar(100)")]
-	public string temp_oi_eMail
-	{
-		get
-		{
-			return this._temp_oi_eMail;
-		}
-		set
-		{
-			if ((this._temp_oi_eMail != value))
-			{
-				this._temp_oi_eMail = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_PhoneNumber", DbType="VarChar(100)")]
-	public string temp_PhoneNumber
-	{
-		get
-		{
-			return this._temp_PhoneNumber;
-		}
-		set
-		{
-			if ((this._temp_PhoneNumber != value))
-			{
-				this._temp_PhoneNumber = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_PhoneExtension", DbType="VarChar(100)")]
-	public string temp_PhoneExtension
-	{
-		get
-		{
-			return this._temp_PhoneExtension;
-		}
-		set
-		{
-			if ((this._temp_PhoneExtension != value))
-			{
-				this._temp_PhoneExtension = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_FaxNumber", DbType="VarChar(100)")]
-	public string temp_FaxNumber
-	{
-		get
-		{
-			return this._temp_FaxNumber;
-		}
-		set
-		{
-			if ((this._temp_FaxNumber != value))
-			{
-				this._temp_FaxNumber = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_OTP", DbType="VarChar(100)")]
-	public string temp_OTP
-	{
-		get
-		{
-			return this._temp_OTP;
-		}
-		set
-		{
-			if ((this._temp_OTP != value))
-			{
-				this._temp_OTP = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line1", DbType="VarChar(100)")]
-	public string temp_oa_Line1
-	{
-		get
-		{
-			return this._temp_oa_Line1;
-		}
-		set
-		{
-			if ((this._temp_oa_Line1 != value))
-			{
-				this._temp_oa_Line1 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line2", DbType="VarChar(100)")]
-	public string temp_oa_Line2
-	{
-		get
-		{
-			return this._temp_oa_Line2;
-		}
-		set
-		{
-			if ((this._temp_oa_Line2 != value))
-			{
-				this._temp_oa_Line2 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Line3", DbType="VarChar(100)")]
-	public string temp_oa_Line3
-	{
-		get
-		{
-			return this._temp_oa_Line3;
-		}
-		set
-		{
-			if ((this._temp_oa_Line3 != value))
-			{
-				this._temp_oa_Line3 = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_City", DbType="VarChar(100)")]
-	public string temp_oa_City
-	{
-		get
-		{
-			return this._temp_oa_City;
-		}
-		set
-		{
-			if ((this._temp_oa_City != value))
-			{
-				this._temp_oa_City = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_State", DbType="VarChar(100)")]
-	public string temp_oa_State
-	{
-		get
-		{
-			return this._temp_oa_State;
-		}
-		set
-		{
-			if ((this._temp_oa_State != value))
-			{
-				this._temp_oa_State = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_temp_oa_Zip", DbType="VarChar(100)")]
-	public string temp_oa_Zip
-	{
-		get
-		{
-			return this._temp_oa_Zip;
-		}
-		set
-		{
-			if ((this._temp_oa_Zip != value))
-			{
-				this._temp_oa_Zip = value;
-			}
-		}
-	}
-}
-
-public partial class spSelectAgencyNumberResult
-{
-	
-	private string _ag_Name;
-	
-	private string _ag_State;
-	
-	private string _ag_Region;
-	
-	public spSelectAgencyNumberResult()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_Name", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-	public string ag_Name
-	{
-		get
-		{
-			return this._ag_Name;
-		}
-		set
-		{
-			if ((this._ag_Name != value))
-			{
-				this._ag_Name = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_State", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-	public string ag_State
-	{
-		get
-		{
-			return this._ag_State;
-		}
-		set
-		{
-			if ((this._ag_State != value))
-			{
-				this._ag_State = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ag_Region", DbType="VarChar(4)")]
-	public string ag_Region
-	{
-		get
-		{
-			return this._ag_Region;
-		}
-		set
-		{
-			if ((this._ag_Region != value))
-			{
-				this._ag_Region = value;
+				this._temp_oc_Key = value;
 			}
 		}
 	}

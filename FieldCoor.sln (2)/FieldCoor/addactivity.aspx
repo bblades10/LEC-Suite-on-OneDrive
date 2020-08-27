@@ -57,7 +57,7 @@
                 panTraining.Visible = false;
                 panRISSafe.Visible = false;
                 panOtherType.Visible = false;
-                lblMessage.Text = "Personal items like vacation need to be entered into your personal calendar.";
+                lblMessage.Text = "Personal items like vacation need to be entered into your time sheet on BambooHR.";
                 break;
             case 5:
                 panInfoDist.Visible = true;

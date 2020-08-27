@@ -99,7 +99,7 @@
                             <td>
                                 <ul>
                                     <li><a href="default.aspx">Home</a></li>
-                                    <li><a href="https://mocicweb.riss.net/travelapp/redirectnew.aspx?u=<%= Session["UserName"] %>" target="_blank">Expenses</a></li>
+                                    <%--<li><a href="https://mocicweb.riss.net/travelapp/redirectnew.aspx?u=<%= Session["UserName"] %>" target="_blank">Expenses</a></li>--%>
                                     <li><a href="https://www.certify.com/login.aspx" target="_blank">Certify</a></li>
                                     <li><a href="https://mociclec.riss.net/memberproject/agencyselection.aspx" target="_blank">Member Usage</a></li>
                                     <li><a href="appreapp.aspx" target="_blank">MTT</a></li>
@@ -205,6 +205,8 @@
                                 <li><a href="reportselection.aspx?rname=participationbystate">Participation By State</a></li>
                                 <li><a href="reportselection.aspx?rname=presentationreport">Presentation Report</a></li>
                                 <li><a href="formsorderform2.aspx">Promotional Materials</a></li>
+                                <li><a href="rmssystems.aspx">RMS Systems</a></li>
+                                <li><a href="rmstotals.aspx">RMS Totals</a></li>
                                 <% if ((Convert.ToInt16(Session["AccessLevel"]) == 4) || (Convert.ToInt16(Session["AccessLevel"]) == 3))
                                     {%>
                                 <li><a href="reportselection.aspx?rname=rissafereport">RISSafe Report</a></li>
@@ -248,11 +250,11 @@
                                 <li><a href="successstory.aspx">Add Success Story</a></li>
                             </ul>
                         </li>
-                        <li><a>Generate Email</a>
+                        <%--<li><a>Generate Email</a>
                             <ul>
                                 <li><a href="email.aspx">Generate State Email</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                         <li><a>LEC Documents</a>
                             <ul>
                                 <li><a href="https://riss.sharepoint.com/MOCIC/Law%20Enforcement%20Coordinator%20Documents/Forms/AllItems.aspx">LEC Documents</a></li>

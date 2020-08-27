@@ -797,29 +797,6 @@
     <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.spSelectAgencyOfficersWithoutRISSNET" Method="spSelectAgencyOfficersWithoutRISSNET">
-    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
-    <ElementType Name="spSelectAgencyOfficersWithoutRISSNETResult">
-      <Column Name="temp_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="temp_of_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="temp_of_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="temp_of_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_of_FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_of_LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_of_Codes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_of_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oi_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_PhoneNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_PhoneExtension" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_FaxNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_Line1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_Line2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_Line3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="temp_oa_Zip" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.spInsertScheduleActivityNew" Method="spInsertScheduleActivityNew">
     <Parameter Name="emp_ID" Type="System.Int32" DbType="Int" />
     <Parameter Name="atype_ID" Type="System.Int32" DbType="Int" />
@@ -967,6 +944,14 @@
     <Parameter Name="EmpID" Parameter="empID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.spSelectAgencyNumber" Method="spSelectAgencyNumber">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="spSelectAgencyNumberResult">
+      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.spSelectAgencyOfficersWithRISSNET" Method="spSelectAgencyOfficersWithRISSNET">
     <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
     <ElementType Name="spSelectAgencyOfficersWithRISSNETResult">
@@ -979,6 +964,7 @@
       <Column Name="temp_of_Codes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="temp_of_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="temp_oi_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oi_UserID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="temp_PhoneNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="temp_PhoneExtension" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="temp_FaxNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -991,12 +977,28 @@
       <Column Name="temp_oa_Zip" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.spSelectAgencyNumber" Method="spSelectAgencyNumber">
-    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="spSelectAgencyNumberResult">
-      <Column Name="ag_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="ag_State" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="ag_Region" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+  <Function Name="dbo.spSelectAgencyOfficersWithoutRISSNET" Method="spSelectAgencyOfficersWithoutRISSNET">
+    <Parameter Name="ag_Key" Type="System.Int32" DbType="Int" />
+    <ElementType Name="spSelectAgencyOfficersWithoutRISSNETResult">
+      <Column Name="temp_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="temp_of_ag_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="temp_of_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_Codes" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_of_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oi_eMail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_PhoneExtension" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_FaxNumber" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Line3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_State" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oa_Zip" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="temp_oc_Key" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

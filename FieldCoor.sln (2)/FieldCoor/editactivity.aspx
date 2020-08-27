@@ -405,7 +405,7 @@
                         panUserUpdate.Visible = false;
                         panTrainingAgencyContacts.Visible = false;
                         panRISSafe.Visible = false;
-                        lblMessage.Text = "Personal items like vacation need to be entered into your personal calendar.";
+                        lblMessage.Text = "Personal items like vacation need to be entered into your time sheet on BambooHR.";
 
                         DataClassesDataContext myMisc = new DataClassesDataContext();
                         var objMisc = myMisc.spSelectActivityMisc(Convert.ToInt32(Request.QueryString["id"]));
@@ -544,7 +544,7 @@
                 blnRemoteFirst = false;
             }
 
-            strResult += "<tr><td class='text' valign='top'>" + recordRemote.temp_of_LastName + ", " + recordRemote.temp_of_FirstName + ", " + recordRemote.temp_of_Title + "<br />" + recordRemote.temp_of_eMail + "<br />" + recordRemote.temp_OTP + "</td><td class='text'><a href=mailto:" + recordRemote.temp_oi_eMail + " title='" + recordRemote.temp_of_Title + " " + recordRemote.temp_of_FirstName + " " + recordRemote.temp_of_LastName + "'>" + recordRemote.temp_oi_eMail + "</a><br /><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B", "").Replace("X", "") + "','name','125','250','no');return false;>" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B", "").Replace("X", "") + "</a>";
+            strResult += "<tr><td class='text' valign='top'>" + recordRemote.temp_of_LastName + ", " + recordRemote.temp_of_FirstName + ", " + recordRemote.temp_of_Title + "<br />" + recordRemote.temp_oi_UserID + "<br />" + recordRemote.temp_OTP + "</td><td class='text'><a href=mailto:" + recordRemote.temp_of_eMail + " title='" + recordRemote.temp_of_Title + " " + recordRemote.temp_of_FirstName + " " + recordRemote.temp_of_LastName + "'>" + recordRemote.temp_of_eMail + "</a><br /><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B", "").Replace("X", "") + "','name','125','250','no');return false;>" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B", "").Replace("X", "") + "</a>";
             if (recordRemote.temp_PhoneNumber != null)
             {
                 strResult += "<br>" + recordRemote.temp_PhoneNumber;

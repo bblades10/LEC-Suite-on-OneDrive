@@ -13,7 +13,7 @@
         {
             lblMessage.Text = "";
         }
-        
+
         DataClassesDataContext myAgencyInfo = new DataClassesDataContext();
         var objAgencyInfo = myAgencyInfo.spSelectAgencyAddressPhone(Convert.ToInt32(Request.QueryString["agkey"]));
         foreach (spSelectAgencyAddressPhoneResult recordAgencyInfo in objAgencyInfo)
@@ -38,6 +38,7 @@
         Boolean blnOfficerFirst = true;
         Boolean blnRemoteFirst = true;
         String strResult = "<table width='800px' cellpadding='2' cellspacing='0' border='0'>";
+        String strDisabled = "";
 
         DataClassesDataContext myNonRemote = new DataClassesDataContext();
         var objNonRemote = myNonRemote.spSelectAgencyOfficersWithoutRISSNET(Convert.ToInt32(Request.QueryString["agkey"]));
@@ -50,7 +51,16 @@
                 blnOfficerFirst = false;
             }
 
-            strResult += "<tr><td class='text' valign='top'>" + recordNonRemote.temp_of_LastName + ", " + recordNonRemote.temp_of_FirstName + ", " + recordNonRemote.temp_of_Title + "<br />" + recordNonRemote.temp_of_eMail + "</td><td class='text'><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordNonRemote.temp_of_Codes.Replace("P", "").Replace("S","").Replace("B","").Replace("X","") + "','name','125','250','no');return false;>" + recordNonRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "</a>";
+            if (recordNonRemote.temp_oc_Key != null)
+            {
+                strDisabled = " *";
+            }
+            else
+            {
+                strDisabled = "";
+            }
+
+            strResult += "<tr><td class='text' valign='top'>" + recordNonRemote.temp_of_LastName + ", " + recordNonRemote.temp_of_FirstName + ", " + recordNonRemote.temp_of_Title + strDisabled + "<br />" + recordNonRemote.temp_of_eMail + "</td><td class='text'><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordNonRemote.temp_of_Codes.Replace("P", "").Replace("S","").Replace("B","").Replace("X","") + "','name','125','250','no');return false;>" + recordNonRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "</a>";
             if (recordNonRemote.temp_PhoneNumber != null)
             {
                 strResult += "<br>" + recordNonRemote.temp_PhoneNumber;
@@ -82,7 +92,7 @@
         }
 
         strResult += "<tr><td colspan='4'><img src='images/spacer.gif' height='20' /></td></tr>";
-        
+
 
         DataClassesDataContext myRemote = new DataClassesDataContext();
         var objRemote = myRemote.spSelectAgencyOfficersWithRISSNET(Convert.ToInt32(Request.QueryString["agkey"]));
@@ -95,7 +105,7 @@
                 blnRemoteFirst = false;
             }
 
-            strResult += "<tr><td class='text' valign='top'>" + recordRemote.temp_of_LastName + ", " + recordRemote.temp_of_FirstName + ", " + recordRemote.temp_of_Title + "<br />" + recordRemote.temp_of_eMail + "<br />" + recordRemote.temp_OTP + "</td><td class='text'><a href=mailto:" + recordRemote.temp_oi_eMail + " title='" + recordRemote.temp_of_Title + " " + recordRemote.temp_of_FirstName + " " + recordRemote.temp_of_LastName + "'>" + recordRemote.temp_oi_eMail + "</a><br /><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "','name','125','250','no');return false;>" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "</a>";
+            strResult += "<tr><td class='text' valign='top'>" + recordRemote.temp_of_LastName + ", " + recordRemote.temp_of_FirstName + ", " + recordRemote.temp_of_Title + "<br />" + recordRemote.temp_oi_UserID + "<br />" + recordRemote.temp_OTP + "</td><td class='text'><a href=mailto:" + recordRemote.temp_of_eMail + " title='" + recordRemote.temp_of_Title + " " + recordRemote.temp_of_FirstName + " " + recordRemote.temp_of_LastName + "'>" + recordRemote.temp_of_eMail + "</a><br /><a class='tablelink' href='#' onclick=NewWindow('officercode.aspx?oc=" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "','name','125','250','no');return false;>" + recordRemote.temp_of_Codes.Replace("P", "").Replace("S", "").Replace("B","").Replace("X","") + "</a>";
             if (recordRemote.temp_PhoneNumber != null)
             {
                 strResult += "<br>" + recordRemote.temp_PhoneNumber;
@@ -164,7 +174,7 @@
         {
             strMessage += "<br /><br />Send Reapplication Paperwork";
         }
-        
+
         objMM.Body = strMessage;
 
         SmtpClient mSmtpClient = new SmtpClient();
@@ -172,9 +182,9 @@
         mSmtpClient.Send(objMM);
 
         Response.Redirect("agencyinfo.aspx?agkey=" + Request.QueryString["agkey"] + "&u=y");
-        
+
     }
-    
+
 </script>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
