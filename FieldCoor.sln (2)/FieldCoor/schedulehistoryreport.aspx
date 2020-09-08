@@ -2,7 +2,8 @@
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Data.SqlClient" %>
 
-<% Response.ContentType = "application/vnd.ms-excel"; %>
+<% Response.ContentType = "application/vnd.ms-excel"; 
+   Response.AddHeader ("Content-Disposition", "attachment; filename=schedulehistory.xls"); %>
 <script runat="server">
 
     protected void Page_Load(object sender, EventArgs e)
