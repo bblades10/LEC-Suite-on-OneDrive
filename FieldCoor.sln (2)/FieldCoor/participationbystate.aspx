@@ -31,7 +31,7 @@
         myParam.Value = Convert.ToDateTime(Request.QueryString["bd"]);
         myParam = myCmd.Parameters.Add("@EndDate", SqlDbType.DateTime);
         myParam.Direction = ParameterDirection.Input;
-        myParam.Value = Convert.ToDateTime(Request.QueryString["ed"]);
+        myParam.Value = Convert.ToDateTime(Request.QueryString["ed"] + " 23:59:59.999");
         myParam = myCmd.Parameters.Add("@Region", SqlDbType.VarChar);
         myParam.Direction = ParameterDirection.Input;
         myParam.Value = Request.QueryString["st"];

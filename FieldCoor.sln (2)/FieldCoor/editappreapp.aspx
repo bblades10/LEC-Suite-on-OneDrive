@@ -104,7 +104,7 @@
         strBody = "There has been an status update to a membership transition tracking entry.\r\n\r\nAgency Number: " + txtAgencyNumber.Text + "\r\n\r\nAgency Name: " + txtAgencyName.Text + "\r\n\r\nAgency State: " + dropState.SelectedItem.Value + "\r\n\r\nAgency District: " + dropDistrict.SelectedItem.Value + "\r\n\r\nAction Type: " + dropType.SelectedItem.Value + "\r\n\r\nLEC Report Completed: " + rblLEC.SelectedItem.Text + "\r\n\r\nInterim Agreement: " + rdlInterim.SelectedItem.Text + "\r\n\r\nCompleted:  " + rblCompleted.SelectedItem.Text + "\r\n\r\nStatus:  " + txtStatus.Text;
 
         objMM.Body = strBody;
-        SmtpClient mySmtpClient = new SmtpClient("rpe.riss.net");
+        SmtpClient mySmtpClient = new SmtpClient("mail.mocic2003.net");
         mySmtpClient.Timeout = int.MaxValue;
         mySmtpClient.Send(objMM);
     }

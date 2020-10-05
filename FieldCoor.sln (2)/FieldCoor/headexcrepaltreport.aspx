@@ -29,7 +29,7 @@
         string strResult;
         strResult = "<table border=1 cellspacing=1 cellpadding=1><tr><td colspan=14 align=center><b>" + strType + " Report for District " + Request.QueryString["d"] + "</b></td></tr>";
 
-        strResult += "<tr><td><b><u>Agency Name</b></u></td><td><b><u>Vetting Type</u></b></td><td><b><u>City</b></u></td><td><b><u>State</b></u></td><td><b><u>Title</b></u></td><td><b><u>Last Name</b></u></td><td><b><u>First Name</b></u></td><td><b><u>Mobile Phone</b></u></td><td><b><u>Work Phone</b></u></td><td><b><u>OTP by SMS</b></u></td><td><b><u>OTP by Voice</b></u></td><td><b><u>Work Email</b></u></td><td><b><u>RISSNET Email</b></u></td><td><b><u>OTP by Email</b></u></td><td><b><u>Create Date</b></u></td></tr>";
+        strResult += "<tr><td><b><u>Agency Name</b></u></td><td><b><u>Vetting Type</u></b></td><td><b><u>Address</u></b></td><td><u><b>City</b></u></td><td><b><u>State</b></u></td><td><b><u>Title</b></u></td><td><b><u>Last Name</b></u></td><td><b><u>First Name</b></u></td><td><b><u>Mobile Phone</b></u></td><td><b><u>Work Phone</b></u></td><td><b><u>OTP by SMS</b></u></td><td><b><u>OTP by Voice</b></u></td><td><b><u>Work Email</b></u></td><td><b><u>RISSNET Email</b></u></td><td><b><u>OTP by Email</b></u></td><td><b><u>Create Date</b></u></td></tr>";
 
 
         SqlConnection myConn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["RissCenterDBConnectionString"].ConnectionString);
@@ -55,7 +55,7 @@
         while (myRS.Read())
         {
 
-            strResult += "<tr><td>" + myRS["Agency Name"] + "</td><td>" + myRS["Vetting Type"] + "</td><td>" + myRS["City"] + "</td><td>" + myRS["State"] + "</td><td>" + myRS["Title"] + "</td><td>" + myRS["Last Name"] + "</td><td>" + myRS["First Name"] + "</td><td>" + myRS["Mobile Phone"] + "</td><td>" + myRS["Work Phone"] + "</td><td>" + myRS["OTPBySMS"] + "</td><td>" + myRS["OTPByVoice"] + "</td><td>" + myRS["Work Email"] + ";</td><td>" + myRS["RISSNET Email"] + "</td><td>" + myRS["OTPByEmail"] + "</td><td>" + myRS["CreateDate"] + "</td></tr>";
+            strResult += "<tr><td>" + myRS["Agency Name"] + "</td><td>" + myRS["Vetting Type"] + "</td><td>" + myRS["Address"] + "</td><td>" + myRS["City"] + "</td><td>" + myRS["State"] + "</td><td>" + myRS["Title"] + "</td><td>" + myRS["Last Name"] + "</td><td>" + myRS["First Name"] + "</td><td>" + myRS["Mobile Phone"] + "</td><td>" + myRS["Work Phone"] + "</td><td>" + myRS["OTPBySMS"] + "</td><td>" + myRS["OTPByVoice"] + "</td><td>" + myRS["Work Email"] + ";</td><td>" + myRS["RISSNET Email"] + "</td><td>" + myRS["OTPByEmail"] + "</td><td>" + myRS["CreateDate"] + "</td></tr>";
 
         }
 

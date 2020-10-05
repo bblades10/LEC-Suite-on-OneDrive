@@ -176,7 +176,7 @@
         
         
 
-            SmtpClient mySmtpClient = new SmtpClient("rpe.riss.net");
+            SmtpClient mySmtpClient = new SmtpClient("mail.mocic2003.net");
             mySmtpClient.Timeout = int.MaxValue;
             mySmtpClient.Send(objMM);
             lblMessage.Text = "Email was sent successfully.";

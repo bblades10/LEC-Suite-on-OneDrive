@@ -72,7 +72,7 @@
         strBody = "There has been a new membership transition tracking entry made.\r\n\r\nAgency Number: " + lblAgencyNumber.Text + "\r\n\r\nAgency Name: " + txtAgencyName.Text + "\r\n\r\nAgency State: " + dropState.SelectedItem.Value + "\r\n\r\nAgency District: " + dropDistrict.SelectedItem.Value + "\r\n\r\nAction Type: " + dropType.SelectedItem.Value + "\r\n\r\nStatus Update: " + txtStatus.Text;
 
         objMM.Body = strBody;
-        SmtpClient mySmtpClient = new SmtpClient("rpe.riss.net");
+        SmtpClient mySmtpClient = new SmtpClient("mail.mocic2003.net");
         mySmtpClient.Timeout = int.MaxValue;
         mySmtpClient.Send(objMM);
         Response.Redirect("appreapp.aspx");
