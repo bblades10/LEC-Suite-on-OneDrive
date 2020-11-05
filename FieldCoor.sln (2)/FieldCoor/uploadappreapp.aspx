@@ -12,7 +12,7 @@
             {
                 string timestamp = DateTime.Now.ToString("yyyyMMddhhmmss");
                 string filename = timestamp + FileUploadControl.FileName.ToString();
-                FileUploadControl.SaveAs(@"D:\appreappreports\" + filename);
+                FileUploadControl.SaveAs(@"F:\appreappreports\" + filename);
                 lblStatus.Text = "File Uploaded Successfully!";
                 //lblStatus.Text = "File path = " + Server.MapPath("~/../appreappreports/") + DateTime.Now.ToString("yyyyMMddhhmmss") + filename;
                 DataClassesDataContext myDB = new DataClassesDataContext();
@@ -33,7 +33,7 @@
 
                 objMM.Body = strBody;
 
-                SmtpMail.SmtpServer = "10.12.1.2";
+                SmtpMail.SmtpServer = "mail.mocic2003.net";
                 SmtpMail.Send(objMM);
                  
             }

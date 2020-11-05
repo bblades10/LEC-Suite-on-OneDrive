@@ -27,7 +27,7 @@
         
         Response.ContentType = "application/msword";
         Response.AppendHeader("Content-Disposition", "attachment; filename=" + strFileName);
-        Response.TransmitFile(@"D:\appreappreports\" + strFileName);
+        Response.TransmitFile(@"F:\appreappreports\" + strFileName);
         Response.End();
         Response.Redirect("listuploads.aspx");
     }

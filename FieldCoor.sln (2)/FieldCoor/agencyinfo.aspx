@@ -178,7 +178,7 @@
         objMM.Body = strMessage;
 
         SmtpClient mSmtpClient = new SmtpClient();
-        mSmtpClient.Host = "10.12.1.2";
+        mSmtpClient.Host = "mail.mocic2003.net";
         mSmtpClient.Send(objMM);
 
         Response.Redirect("agencyinfo.aspx?agkey=" + Request.QueryString["agkey"] + "&u=y");

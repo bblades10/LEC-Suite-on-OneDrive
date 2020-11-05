@@ -48,7 +48,7 @@ Do until objRS.eof
   'msg.AddRecipientBCC "bblades@mocic.riss.net"
   msg.Subject = "App/Reapp Needing Updated Notification"
   msg.Body = thebody
-  msg.Send( "10.12.1.2" )
+  msg.Send( "mail.mocic2003.net" )
   
   objRS.movenext
 Loop
@@ -81,6 +81,6 @@ sub CompletedMail()
 	msg.AddRecipient "bblades@mocic.riss.net"
 	msg.Subject = "App/Reapp Reminder Routine Completed"
 	msg.Body = thebody
-	msg.Send( "10.12.1.2" )
+	msg.Send( "mail.mocic2003.net" )
 	
 end sub

@@ -363,7 +363,7 @@
 
                             objMM.Body = strBody;
 
-                            SmtpMail.SmtpServer = "10.12.1.2";
+                            SmtpMail.SmtpServer = "mail.mocic2003.net";
                             SmtpMail.Send(objMM);
                         }
                     }
